@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Title>Tempus</Title>
+    <Version>5.0</Version>
+    <Company>DSM Sistemas e Consultoria</Company>
+    <Authors>Daniel Menezes</Authors>
+    <PackageIcon>Tempus.png</PackageIcon>
+    <ApplicationIcon>Tempus.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Tempus.ico" />
+  </ItemGroup>
+
+</Project>
