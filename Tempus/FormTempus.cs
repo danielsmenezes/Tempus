@@ -24,6 +24,12 @@ namespace Tempus
 
         private void FormTempus_Load(object sender, EventArgs e)
         {
+            if (screens.Length < 2)
+            {
+                MessageBox.Show("Monitor secundário não detectado.\n\nPor favor, conecte um segundo monitor e reinicie a aplicação.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
+
             tbTime.Text = lastconfig.Time.ToString();
             clockType = lastconfig.Type.ToString();
             btnStart.Select();
@@ -230,7 +236,10 @@ namespace Tempus
 
         private void btnHelp_Click(object sender, EventArgs e)
         {
-            // Me
+            MessageBox.Show("Monitor secundário não detectado.\n\nPor favor, conecte um segundo monitor e reinicie a aplicação.", 
+                "Error", 
+                MessageBoxButtons.OK, 
+                MessageBoxIcon.Information);
         }
 
         private void CentralizeLabel(object sender, EventArgs e)
