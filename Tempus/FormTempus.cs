@@ -244,19 +244,19 @@ namespace Tempus
 
                 if (lastconfig.FinalBackGround == "Alter")
                 {
-                    frmSec.BackColor = Color.Yellow;
+                    frmSec.BackColor = Color.Red;
 
                     if (flashRed)
                     {
                         lblCrono.ForeColor = Color.Red;
-                        frmSec.lblTimeSec.ForeColor = Color.Red;
+                        frmSec.lblTimeSec.ForeColor = Color.Yellow;
                         flashRed = false;
                     }
                     else
                     {
 
                         lblCrono.ForeColor = Color.Black;
-                        frmSec.lblTimeSec.ForeColor = Color.Black;
+                        frmSec.lblTimeSec.ForeColor = Color.Yellow;
 
                         flashRed = true;
                     }
@@ -302,8 +302,8 @@ namespace Tempus
 
         private void btnHelp_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Monitor secundário não detectado.\n\nPor favor, conecte um segundo monitor e reinicie a aplicação.", 
-                "Error", 
+            MessageBox.Show("Esse programa é livre para ser editado ou melhorado, dúvidas acesse o projeto no GitHub através do link\n\nhttps://github.com/danielsmenezes/Tempus", 
+                "Tempus (Ver 5.1)", 
                 MessageBoxButtons.OK, 
                 MessageBoxIcon.Information);
         }

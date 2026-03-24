@@ -7,7 +7,7 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <Title>Tempus</Title>
-    <Version>5.0</Version>
+    <Version>5.1.0</Version>
     <Company>DSM Sistemas e Consultoria</Company>
     <Authors>Daniel Menezes</Authors>
     <PackageIcon>Tempus.png</PackageIcon>
