@@ -11,11 +11,13 @@ It was specifically designed for **small churches, local events, and lectures** 
 
 ## 🚀 Features
 * **Dual-Monitor Support:** Automatically detects available screens and casts the timer to the secondary monitor without dragging windows around.
+* **Smart Visual Alerts (New!):** * Set a custom threshold (in minutes) for the timer text to flash red, gently warning the speaker to wrap up.
+  * **End-of-Time Highlight:** Optional high-contrast alert mode (Red background, Yellow text) when the timer hits zero.
 * **Speaker-Friendly Display:** Clean, distraction-free UI that only shows what the speaker needs to see.
 * **Persistent Configuration:** User preferences are securely saved locally via `System.Text.Json`.
 * **Highly Customizable:**
   * Adjustable font sizes and styles (Bold/Regular).
-  * Time format selection (e.g., `hh:mm` or `hh:mm:ss`).
+  * Time format selection (`hh:mm:ss`, `hh:mm`, or strictly `mm:ss` for sessions over an hour, like `120:00`).
   * Theme support (Light and Dark modes to match venue lighting).
 * **Hidden Debug Mode:** Built-in debug tag in the configuration file for advanced troubleshooting.
 
@@ -27,7 +29,7 @@ It was specifically designed for **small churches, local events, and lectures** 
 
 ## 📦 How to Run
 1. Make sure you have the [.NET 10 SDK](https://dotnet.microsoft.com/) installed.
-2. Clone this repository: `git clone https://github.com/danielsmenezes/Tempus.git`
+2. Clone this repository: `git clone https://github.com/your-username/Tempus.git`
 3. Open the `.sln` file in Visual Studio.
 4. Build and run the project (F5).
 
@@ -46,11 +48,13 @@ Foi projetado especificamente para **pequenas igrejas, eventos locais e palestra
 
 ## 🚀 Funcionalidades
 * **Suporte a Múltiplos Monitores:** Detecta automaticamente as telas disponíveis e envia o relógio para o monitor secundário, sem precisar arrastar janelas.
+* **Alertas Visuais Inteligentes (Novo!):** * Defina com quantos minutos de antecedência o relógio deve piscar em vermelho, avisando o palestrante para concluir.
+  * **Destaque ao Zerar:** Modo opcional de alto contraste (Fundo Vermelho, Letras Amarelas) para chamar atenção máxima quando o tempo esgota.
 * **Tela Focada no Palestrante:** Interface limpa e sem distrações, mostrando apenas a informação necessária.
 * **Configuração Persistente:** As preferências do usuário são salvas localmente de forma segura via `System.Text.Json`.
 * **Altamente Customizável:**
   * Tamanho e estilo de fonte ajustáveis.
-  * Seleção de formato de tempo (ex: `hh:mm` ou `hh:mm:ss`).
+  * Seleção de formato de tempo (`hh:mm:ss`, `hh:mm`, ou estritamente `mm:ss` para sessões com mais de uma hora, como `120:00`).
   * Suporte a temas (Modos Claro e Escuro para combinar com a iluminação do local).
 * **Modo Debug Oculto:** Tag de debug embutida no arquivo de configuração para testes avançados.
 
@@ -62,6 +66,6 @@ Foi projetado especificamente para **pequenas igrejas, eventos locais e palestra
 
 ## 📦 Como Executar
 1. Certifique-se de ter o [.NET 10 SDK](https://dotnet.microsoft.com/) instalado.
-2. Clone este repositório: `git clone https://github.com/danielsmenezes/Tempus.git`
+2. Clone este repositório: `git clone https://github.com/seu-usuario/Tempus.git`
 3. Abra o arquivo `.sln` no Visual Studio.
 4. Compile e execute o projeto (F5).
