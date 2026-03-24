@@ -10,10 +10,12 @@ namespace Tempus
     class TempusConfig
     {
         public int Time { get; set; }
-        public string Type { get; set; }
+        public int TimeToBlink { get; set; }
+        public string? Type { get; set; }
         public int FontSize { get; set; }
-        public string BackGround { get; set; }
-        public string FinalTime { get; set; }
+        public string? BackGround { get; set; }
+        public string? FinalTime { get; set; }
+        public string? FinalBackGround { get; set; }
 
         [JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingDefault)]
         public bool Debug { get; set; }
@@ -50,10 +52,12 @@ namespace Tempus
             return new TempusConfig
             {
                 Time = 10,
+                TimeToBlink = 3,
                 Type = @"hh\:mm\:ss",
                 FontSize = 150,
                 BackGround = "Light",
-                FinalTime = "Stop"
+                FinalTime = "Stop",
+                FinalBackGround = "Alter"
             };
         }
     }

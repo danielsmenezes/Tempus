@@ -71,7 +71,9 @@ namespace Tempus
                     FontSize = lastconfig.FontSize,
                     Type = lastconfig.Type,
                     BackGround = lastconfig.BackGround,
-                    FinalTime = lastconfig.FinalTime
+                    FinalTime = lastconfig.FinalTime,
+                    FinalBackGround = lastconfig.FinalBackGround,
+                    TimeToBlink = lastconfig.TimeToBlink
                 };
                 config.SaveConfig();
 
@@ -126,7 +128,9 @@ namespace Tempus
                     FontSize = lastconfig.FontSize,
                     Type = lastconfig.Type,
                     BackGround = lastconfig.BackGround,
-                    FinalTime = lastconfig.FinalTime
+                    FinalTime = lastconfig.FinalTime,
+                    FinalBackGround = lastconfig.FinalBackGround,
+                    TimeToBlink = lastconfig.TimeToBlink
                 };
                 config.SaveConfig();
             }
@@ -181,11 +185,23 @@ namespace Tempus
 
         private void UpdateDisplay()
         {
-            lblCrono.Text = lastTime.ToString(clockType);
-            lblCrono.ForeColor = Color.Black;
-            frmSec.lblTimeSec.Text = lastTime.ToString(clockType);
+            if (lastconfig.Type == @"mm\:ss")
+            {
+                int lastMinutes = (int)Math.Abs(Math.Truncate(lastTime.TotalMinutes));
+                int lastSeconds = Math.Abs(lastTime.Seconds);
+                lblCrono.Text = $"{lastMinutes:D2}:{lastSeconds:D2}";
+                frmSec.lblTimeSec.Text = $"{lastMinutes:D2}:{lastSeconds:D2}";
+            }
+            else
+            {
+                lblCrono.Text = lastTime.ToString(clockType);
+                frmSec.lblTimeSec.Text = lastTime.ToString(clockType);
+            }
 
-            if (lastTime <= TimeSpan.FromMinutes(1))
+            lblCrono.ForeColor = Color.Black;
+            
+
+            if (lastTime <= TimeSpan.FromMinutes(lastconfig.TimeToBlink) && lastTime > TimeSpan.Zero)
             {
 
                 if (flashRed)
@@ -209,15 +225,65 @@ namespace Tempus
                     flashRed = true;
                 }
 
-            }          
+            }
 
-            if (lastTime < TimeSpan.Zero)
+            if (lastTime <= TimeSpan.Zero)
             {
-                lblCrono.Text = lastTime.ToString(@"\-" + clockType);
-                frmSec.lblTimeSec.Text = lastTime.ToString(@"\-" + clockType);
+                if (lastconfig.Type == @"mm\:ss")
+                {
+                    int lastMinutes = (int)Math.Abs(Math.Truncate(lastTime.TotalMinutes));
+                    int lastSeconds = Math.Abs(lastTime.Seconds);
+                    lblCrono.Text = lastTime < TimeSpan.Zero ? "-" + $"{lastMinutes:D2}:{lastSeconds:D2}" : $"{lastMinutes:D2}:{lastSeconds:D2}";
+                    frmSec.lblTimeSec.Text = lastTime < TimeSpan.Zero ? "-" + $"{lastMinutes:D2}:{lastSeconds:D2}" : $"{lastMinutes:D2}:{lastSeconds:D2}";
+                }
+                else
+                {
+                    lblCrono.Text = lastTime < TimeSpan.Zero ? lastTime.ToString(@"\-" + clockType) : lastTime.ToString(clockType);
+                    frmSec.lblTimeSec.Text = lastTime < TimeSpan.Zero ? lastTime.ToString(@"\-" + clockType) : lastTime.ToString(clockType);
+                }
 
-                lblCrono.ForeColor = Color.Red;
-                frmSec.lblTimeSec.ForeColor = Color.Red;
+                if (lastconfig.FinalBackGround == "Alter")
+                {
+                    frmSec.BackColor = Color.Yellow;
+
+                    if (flashRed)
+                    {
+                        lblCrono.ForeColor = Color.Red;
+                        frmSec.lblTimeSec.ForeColor = Color.Red;
+                        flashRed = false;
+                    }
+                    else
+                    {
+
+                        lblCrono.ForeColor = Color.Black;
+                        frmSec.lblTimeSec.ForeColor = Color.Black;
+
+                        flashRed = true;
+                    }
+                }
+                else
+                {
+                    if (flashRed)
+                    {
+                        lblCrono.ForeColor = Color.Red;
+                        frmSec.lblTimeSec.ForeColor = Color.Red;
+                        flashRed = false;
+                    }
+                    else
+                    {
+                        if (lastconfig.BackGround == "Dark")
+                        {
+                            lblCrono.ForeColor = Color.Black;
+                            frmSec.lblTimeSec.ForeColor = Color.White;
+                        }
+                        else
+                        {
+                            lblCrono.ForeColor = Color.Black;
+                            frmSec.lblTimeSec.ForeColor = Color.Black;
+                        }
+                        flashRed = true;
+                    }
+                }
             }
 
             lblCrono.SizeChanged += CentralizeLabel;

@@ -153,7 +153,7 @@
             MinimizeBox = false;
             Name = "FormTempus";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Tempus (Ver 5.0)";
+            Text = "Tempus (Ver 5.1)";
             Load += FormTempus_Load;
             ResumeLayout(false);
             PerformLayout();
